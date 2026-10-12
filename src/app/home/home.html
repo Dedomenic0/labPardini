@@ -1,0 +1,86 @@
+<div class="page-container">
+  
+  <!-- HEADER / TOPO -->
+  <header class="header">
+    <div class="header-content">
+      <a href="#">
+      <div class="logo-area">
+        <div class="logo-icon"><img src="/logo2.png" alt="Logo"></div>
+        <div class="logo-texts">
+          <span class="logo-title">DR. PARDINI</span>
+          <span class="logo-subtitle">LABORATÓRIO CLÍNICO</span>
+        </div>
+      </div>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="#" class="active">HOME</a>
+        <a href="#exames">EXAMES</a>
+        <a href="#unidades">UNIDADES</a>
+        <a href="#convenios">CONVÊNIOS</a>
+        <a href="#sobre">SOBRE</a>
+        <a href="#resultados" (click)="resultado()">PORTAL DE RESULTADOS</a>
+      </nav>
+
+      <div class="accessibility-area">
+        <button class="access-btn" title="Acessibilidade">♿ Acessibilidade</button>
+        <button class="font-btn">A+</button>
+        <button class="theme-btn">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      
+      <!-- ESQUERDA: APRESENTAÇÃO -->
+      <div class="hero-text">
+        <span class="badge">Precisão e Confiança desde 1948</span>
+        <h1>Cuidando da sua saúde com <span>tecnologia e humanização</span>.</h1>
+        <p>Tradição em Botucatu, oferecendo exames laboratoriais seguros, rápidos e de alta confiabilidade para você e sua família por um preço justo.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TIMELINE / SOBRE -->
+  <section id="sobre" class="timeline-section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-sup">Tradição e Inovação</span>
+        <h2>NOSSA HISTÓRIA DESDE 1948</h2>
+        <p>Conheça os marcos da nossa trajetória prestando serviços de excelência para Botucatu e região.</p>
+      </div>
+
+      <div class="timeline-grid">
+        <div *ngFor="let item of timelineEvents" class="timeline-item">
+          <div class="timeline-icon">🏢</div>
+          <span class="timeline-year">{{ item.year }} — {{ item.title | uppercase }}</span>
+          <p>{{ item.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <app-convenios id="convenios"></app-convenios>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <p>© 2026 Laboratório Dr. Pardini. Todos os direitos reservados.</p>
+      <div class="footer-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+        <a href="#">Área Médica</a>
+      </div>
+    </div>
+
+    <!-- BOTÃO FLUTUANTE WHATSAPP -->
+    <a href="https://wa.me/" target="_blank" class="whatsapp-float">
+      <span><img src="/whatsapp.png" alt=""> ATENDIMENTO VIA WHATSAPP</span>
+    </a>
+  </footer>
+
+</div>

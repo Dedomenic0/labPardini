@@ -1,0 +1,52 @@
+<div class="exames-convenios-wrapper">
+  
+  <!-- SEÇÃO DE CONVÊNIOS -->
+  <section id="convenios" class="convenios-section">
+    <div class="section-container">
+     
+
+      <div class="convenios-grid">
+        <div *ngFor="let conv of conveniosList" class="convenio-card">
+          <span class="convenio-name"><img src="{{ conv.logo }}" alt="{{ conv.name }}"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO DE EXAMES -->
+  <section id="exames" class="exames-section">
+    <div class="exames-overlay"></div>
+    <div class="section-container relative-z">
+      
+      <div class="section-header light">
+        
+        <h2>NOSSOS EXAMES</h2>
+        <p>Estrutura tecnológica avançada para diagnósticos precisos e seguros.</p>
+      </div>
+
+      <div class="exames-grid">
+        <!-- Coluna 1 -->
+        <div class="exames-box">
+          <h3>Áreas Clínicas</h3>
+          <ul>
+            <li *ngFor="let exame of examesColuna1">
+              <span class="bullet">✓</span> {{ exame }}
+            </li>
+          </ul>
+        </div>
+
+        <!-- Coluna 2 -->
+        <div class="exames-box">
+          <h3>Especializados & Ocupacionais</h3>
+          <ul>
+            <li *ngFor="let exame of examesColuna2">
+              <span class="bullet">✓</span> {{ exame }}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
