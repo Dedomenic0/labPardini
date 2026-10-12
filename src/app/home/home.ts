@@ -3,10 +3,11 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { User, UserService } from '../services/user';
 import { Convenios } from '../convenios/convenios';
+import { Cabecalho } from '../cabecalho/cabecalho';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, FormsModule, Convenios],
+  imports: [CommonModule, FormsModule, Convenios, Cabecalho],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
@@ -27,9 +28,7 @@ export class Home {
     { year: '2009', title: 'Expansão', description: 'É inaugurada a unidade na Avenida Dom Lúcio, trasendo mais conforto aos pacientes e modernização das instalações.' }
   ];
 
-  resultado() {
-    window.open('https://portal.worklabweb.com.br/resultados-on-line/1122');
-  }
+  
 
   onLogin() {
     console.log('Tentativa de login:', { tipo: this.activeTab, chave: this.chave });

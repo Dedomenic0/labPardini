@@ -1,0 +1,10 @@
+{
+  "/api-fleury": {
+    "target": "https://cms.fleury.com.br",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api-fleury": ""
+    }
+  }
+}

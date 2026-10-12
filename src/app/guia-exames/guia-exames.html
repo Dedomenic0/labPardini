@@ -1,7 +1,78 @@
-<div class="guia-container">
-  <h2 class="titulo">Consulte seus Exames</h2>
+<app-cabecalho></app-cabecalho>
+<div class="guia-exames-container">  
   
-  <div class="alfabeto-lista">
-    
+  <!-- CABEÇALHO E ÁREA DE PESQUISA -->
+  <div class="guia-header">
+    <div class="title-wrapper">
+      <span class="section-sup">Catálogo Oficial</span>
+      <h2>PESQUISA DE EXAMES</h2>
+      <p>Digite o nome do exame que deseja consultar abaixo:</p>
+    </div>
+
+    <!-- Barra de Pesquisa -->
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input 
+        type="text" 
+        
+        (input)="onPesquisar()" 
+        placeholder="Ex: Hemograma, Glicemia, Colesterol..."
+        class="search-input">
+      <button *ngIf="termoBusca" (click)="limparBusca()" class="clear-btn">✕</button>
+    </div>
   </div>
+
+  <!-- LISTA / TABELA DE EXAMES -->
+  <div class="exames-content">
+    
+    <!-- Estado de Carregamento -->
+    <div *ngIf="carregando" class="loading-state">
+      <div class="spinner"></div>
+      <p>Carregando exames...</p>
+    </div>
+
+    <!-- Lista de Exames (Caso haja resultados) -->
+    <div *ngIf="!carregando && examesFiltrados.length > 0" class="exames-grid">
+      <div *ngFor="let exame of examesPaginados" class="exame-card">
+        <div class="exame-info">
+          <h3 class="exame-nome">{{ exame.name || exame.name }}</h3>
+          <p class="exame-descricao" *ngIf="exame.name">
+            {{ exame.instrucoesGerais[0].conteudo }}
+          </p>
+        </div>
+        <div class="exame-footer">
+          <span class="badge-prazo">Prazo: {{ exame.instrucoesGerais[2].conteudo }}</span>
+          <button class="detalhes-btn">Ver preparo</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Estado Vazio (Nenhum resultado encontrado) -->
+    <div *ngIf="!carregando && examesFiltrados.length === 0" class="empty-state">
+      <p>Nenhum exame encontrado para <strong>"{{ termoBusca }}"</strong>.</p>
+    </div>
+
+  </div>
+
+  <!-- CONTROLES DE PAGINAÇÃO -->
+  <div class="pagination-container" *ngIf="!carregando && totalPaginas > 1">
+    <button 
+      (click)="mudarPagina(paginaAtual - 1)" 
+      [disabled]="paginaAtual === 1"
+      class="page-btn">
+      ← Anterior
+    </button>
+    
+    <span class="page-info">
+      Página <strong>{{ paginaAtual }}</strong> de <strong>{{ totalPaginas }}</strong>
+    </span>
+
+    <button 
+      (click)="mudarPagina(paginaAtual + 1)" 
+      [disabled]="paginaAtual === totalPaginas"
+      class="page-btn">
+      Próxima →
+    </button>
+  </div>
+
 </div>

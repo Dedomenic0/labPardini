@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 export interface Exames {
   id: number;
-  nome: string;
+  name: string;
   json: {
     instrucoesGerais: [
         {
@@ -20,12 +20,10 @@ export interface Exames {
 })
 export class ExamesService {
 
-    pagina: number = 1;
 
   private http = inject(HttpClient);
-  private apiUrl = `https://cms.fleury.com.br/api/exams-api?sort%5B0%5D=name%3Aasc&pagination%5Bpage%5D=${this.pagina}&pagination%5BpageSize%5D=12&populate=%2A`;
 
-  getExames(): Observable<Exames[]> {
-    return this.http.get<Exames[]>(this.apiUrl);
+  getExames(pagina: number): Observable<Exames[]> {
+    return this.http.get<Exames[]>(`/api-fleury/api/exams-api?sort%5B0%5D=name%3Aasc&pagination%5Bpage%5D=${pagina}&pagination%5BpageSize%5D=12&populate=%2A`);
   }
 }

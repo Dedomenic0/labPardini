@@ -64,7 +64,8 @@
               "buildTarget": "lab-pardini:build:production"
             },
             "development": {
-              "buildTarget": "lab-pardini:build:development"
+              "buildTarget": "lab-pardini:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
