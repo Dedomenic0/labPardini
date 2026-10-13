@@ -14,13 +14,17 @@
       <span class="search-icon">🔍</span>
       <input 
         type="text" 
-        
-        (input)="onPesquisar()" 
+        [value]="termoBusca"
+        (input)="termoBusca = $any($event.target).value; onPesquisar()" 
         placeholder="Ex: Hemograma, Glicemia, Colesterol..."
         class="search-input">
-      <button *ngIf="termoBusca" (click)="limparBusca()" class="clear-btn">✕</button>
+      @if (termoBusca) {
+        <button (click)="limparBusca()" class="clear-btn">✕</button>
+      }
+      
     </div>
   </div>
+  
 
   <!-- LISTA / TABELA DE EXAMES -->
   <div class="exames-content">
@@ -37,11 +41,11 @@
         <div class="exame-info">
           <h3 class="exame-nome">{{ exame.name || exame.name }}</h3>
           <p class="exame-descricao" *ngIf="exame.name">
-            {{ exame.instrucoesGerais[0].conteudo }}
+            {{ exame.jejum }}
           </p>
         </div>
         <div class="exame-footer">
-          <span class="badge-prazo">Prazo: {{ exame.instrucoesGerais[2].conteudo }}</span>
+          <span class="badge-prazo">Prazo: {{ exame.prazo }}</span>
           <button class="detalhes-btn">Ver preparo</button>
         </div>
       </div>

@@ -23,6 +23,8 @@ export class GuiaExames {
   itensPorPagina: number = 12;
   totalPaginas: number = 1;
 
+  prazo: number = 0;
+
   ngOnInit() {
     this.carregarExames();
   }
@@ -33,7 +35,6 @@ export class GuiaExames {
       this.todosExames = data.data;
       this.paginaAtual = data.meta.pagination.page;
       this.totalPaginas = data.meta.pagination.pageCount;
-      console.log(data.data);
       this.addExames();
     });
     this.carregando = false; 
@@ -44,10 +45,10 @@ export class GuiaExames {
         return {
           id: i.id,
           name: i.name,
-          instrucoesGerais: i.json?.instrucoesGerais || []
+          jejum: i.json?.instrucoesGerais?.find((instrucao: any) => instrucao.titulo === 'Jejum')?.conteudo || 'Não necessita jejum',
+          prazo: i.json?.instrucoesGerais?.find((instrucao: any) => instrucao.titulo === 'Prazo de Entrega')?.conteudo || ''
         };
       });
-
       this.examesFiltrados = [...this.examesOriginal];
       this.examesPaginados = [...this.examesOriginal]
 
@@ -66,19 +67,14 @@ limparBusca() {
 }
 
 aplicarFiltrosEPaginacao() {
-  // 1. Filtra por texto digitado
-  this.examesFiltrados = this.examesOriginal.filter(exame => {
-    const nome = exame.name || exame.name || '';
-    return nome.toLowerCase().includes(this.termoBusca.toLowerCase());
+
+  this.examesService.getPesquisa(this.termoBusca).subscribe((data: any) => {
+    this.todosExames = data.data;
+    this.paginaAtual = data.meta.pagination.page;
+    this.totalPaginas = data.meta.pagination.pageCount;
+    this.addExames();
   });
 
-  // 2. Calcula total de páginas
-  this.totalPaginas = Math.ceil(this.examesFiltrados.length / this.itensPorPagina) || 1;
-
-  // 3. Corta o array para exibir apenas os itens da página atual
-  const inicio = (this.paginaAtual - 1) * this.itensPorPagina;
-  const fim = inicio + this.itensPorPagina;
-  this.examesPaginados = this.examesFiltrados.slice(inicio, fim);
 }
 
 mudarPagina(novaPagina: number) {

@@ -1,0 +1,58 @@
+<app-cabecalho></app-cabecalho>
+<div class="sobre-container">
+  
+  <!-- SEÇÃO DE APRESENTAÇÃO (HERO DA ABA) -->
+  <section class="sobre-hero">
+    <div class="hero-content">
+      <span class="section-badge">Sobre o Laboratório</span>
+      <h2>Compromisso com a sua saúde e precisão diagnóstica</h2>
+      <p class="hero-text">
+        Unimos inovação tecnológica, rigor técnico e um atendimento humanizado para oferecer 
+        diagnósticos seguros que auxiliam médicos e pacientes na tomada de melhores decisões clínicas.
+      </p>
+    </div>
+  </section>
+
+  <!-- SEÇÃO DE NOSSA HISTÓRIA / MISSÃO -->
+  <section class="sobre-historia">
+    <div class="historia-grid">
+      <div class="historia-texto">
+        <h3>Nossa Missão & Propósito</h3>
+        <p>
+          Atuamos na retaguarda da saúde local prestando serviços de análises clínicas com excelência, 
+          assegurando confiabilidade em cada laudo emitido. Contamos com processos rigorosos de controle 
+          interno e externo de qualidade.
+        </p>
+        <p>
+          Através de parcerias estratégicas com laboratórios de apoio de renome nacional, como o grupo 
+          Pardini/Fleury, ampliamos o nosso portfólio para atender desde exames rotineiros até os de 
+          alta complexidade biológica e molecular.
+        </p>
+      </div>
+
+      <div class="historia-card-destaque">
+        <div class="destaque-box">
+          <span class="numero">100%</span>
+          <span class="rotulo">Foco em Qualidade e Biossegurança</span>
+        </div>
+        <div class="destaque-box">
+          <span class="numero">+Exames</span>
+          <span class="rotulo">Portfólio Completo de Análises</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO DE DIFERENCIAIS -->
+  <section class="sobre-diferenciais">
+    <h3>Por que escolher nossa estrutura?</h3>
+    <div class="diferenciais-grid">
+      <div *ngFor="let dif of diferenciais" class="diferencial-card">
+        <div class="icone-wrapper">{{ dif.icone }}</div>
+        <h4>{{ dif.titulo }}</h4>
+        <p>{{ dif.descricao }}</p>
+      </div>
+    </div>
+  </section>
+
+</div>
