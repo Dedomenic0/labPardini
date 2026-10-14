@@ -14,7 +14,67 @@
         <h1>Cuidando da sua saúde com <span>tecnologia e humanização</span>.</h1>
         <p>Tradição em Botucatu, oferecendo exames laboratoriais seguros, rápidos e de alta confiabilidade para você e sua família por um preço justo.</p>
         <p>O Laboratório de analises clinicas Dr. Pardini é um parceiro oficial do Lab-to-Lab PARDINI uma parceria que garante a melhor qualidade e confiabilidade em exames laboratoriais.</p>
-        <img src="/lab-to-lab.webp" alt="Lab Pardini" class="labpardini-logo">
+        <img src="/lab-to-lab.webp" alt="Logo Lab-to-Lab PARDINI" class="labpardini-logo">
+      </div>
+
+      <!-- DIREITA: CARD DE RESULTADOS -->
+      <div class="portal-card">
+        <h2>
+          <span>SEU PORTAL DE RESULTADOS</span>
+          <span class="status-tag">Online</span>
+        </h2>
+
+        <!-- ABAS -->
+        <div class="tabs">
+          <button 
+            type="button"
+            (click)="activeTab = 'paciente'"
+            [class.active]="activeTab === 'paciente'">
+            PACIENTE
+          </button>
+          <button 
+            type="button"
+            (click)="activeTab = 'medico'"
+            [class.active]="activeTab === 'medico'">
+            MÉDICO
+          </button>
+          <button 
+            type="button"
+            (click)="activeTab = 'convenio'"
+            [class.active]="activeTab === 'convenio'">
+            CONVÊNIO
+          </button>
+        </div>
+
+        <!-- FORMULÁRIO -->
+        <form (submit)="onLogin()" class="login-form">
+          <div class="form-group">
+            <label>Chave / Protocolo</label>
+            <input 
+              type="text" 
+              [(ngModel)]="chave" 
+              name="chave" 
+              placeholder="Digite sua chave de acesso"
+              required>
+          </div>
+
+          <div class="form-group">
+            <label>Senha</label>
+            <input 
+              type="password" 
+              [(ngModel)]="senha" 
+              name="senha" 
+              placeholder="••••••••"
+              required>
+          </div>
+
+          <button type="submit" class="submit-btn">ENTRAR</button>
+        </form>
+
+        <div class="card-footer">
+          <a href="#" class="whatsapp-link">💬 Receber resultados por WhatsApp</a>
+          <a href="#" class="forgot-link">Esqueci minha senha / dados de acesso</a>
+        </div>
       </div>
 
     </div>
@@ -38,6 +98,8 @@
       </div>
     </div>
   </section>
+
+  
 
   <app-convenios id="convenios"></app-convenios>
 

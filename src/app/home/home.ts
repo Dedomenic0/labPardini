@@ -37,17 +37,25 @@ export class Home {
     const userData: User = {
       tbCodigo: this.chave,
       tbSenha: this.senha,
-      tbDtaNascimentoShow: 0, // Exemplo de valor, ajuste conforme necessário
+      _token: '', // Exemplo de valor, ajuste conforme necessário
       rdbOpcao: this.activeTab
     };
     this.userService.resultado(userData).subscribe(
       (response) => {
-        console.log('Login bem-sucedido:', response);
-        window.open(response.url, '_blank');
+        
+        const blob = new Blob([response], {
+        type: 'text/html;charset=utf-8'
+      });
+
+        const url = URL.createObjectURL(blob);
+
+        window.open(url, '_blank');
+
+        setTimeout(() => URL.revokeObjectURL(url), 60000);
       },
       (error) => {
         console.error('Erro no login:', error);
-        window.open(error.url, '_blank');
+        
         // Aqui você pode exibir uma mensagem de erro para o usuário.
       }
     );

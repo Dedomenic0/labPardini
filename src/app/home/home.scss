@@ -1,6 +1,6 @@
 // VARIÁVEIS DE CORES
 $emerald-dark: #065f46;
-$emerald-primary: #047857;
+$emerald-primary: #86b9a1;
 $emerald-light: #10b981;
 $emerald-bg: #ecfdf5;
 $slate-900: #0f172a;
@@ -10,6 +10,8 @@ $slate-300: #cbd5e1;
 $slate-100: #f1f5f9;
 $slate-50: #f8fafc;
 $white: #ffffff;
+$emerald-secondary: #bdc2a6;
+$emerald-primary-logo: #92b6a5;
 
 .page-container {
   min-height: 100vh;
@@ -110,7 +112,7 @@ $white: #ffffff;
     .badge {
       display: inline-block;
       background: rgba($emerald-light, 0.2);
-      color: #6ee7b7;
+      color: $emerald-secondary;
       border: 1px solid rgba($emerald-light, 0.3);
       font-size: 0.75rem;
       font-weight: 600;
@@ -137,7 +139,7 @@ $white: #ffffff;
       margin-bottom: 1.5rem;
 
       span {
-        color: #34d399;
+        color: $emerald-secondary;
       }
 
       @media (min-width: 640px) {
