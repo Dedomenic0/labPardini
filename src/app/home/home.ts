@@ -31,33 +31,13 @@ export class Home {
   
 
   onLogin() {
-    console.log('Tentativa de login:', { tipo: this.activeTab, chave: this.chave });
-    // Lógica de autenticação do laboratório
-    
     const userData: User = {
       tbCodigo: this.chave,
       tbSenha: this.senha,
       _token: '', // Exemplo de valor, ajuste conforme necessário
       rdbOpcao: this.activeTab
     };
-    this.userService.resultado(userData).subscribe(
-      (response) => {
-        
-        const blob = new Blob([response], {
-        type: 'text/html;charset=utf-8'
-      });
 
-        const url = URL.createObjectURL(blob);
-
-        window.open(url, '_blank');
-
-        setTimeout(() => URL.revokeObjectURL(url), 60000);
-      },
-      (error) => {
-        console.error('Erro no login:', error);
-        
-        // Aqui você pode exibir uma mensagem de erro para o usuário.
-      }
-    );
+    this.userService.abrirResultados(userData);
   }
 }

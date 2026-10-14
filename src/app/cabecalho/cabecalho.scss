@@ -1,6 +1,6 @@
 // VARIÁVEIS DE CORES
 $emerald-dark: #065f46;
-$emerald-primary: #047857;
+$emerald-primary: #86b9a1;
 $emerald-light: #10b981;
 $emerald-bg: #ecfdf5;
 $slate-900: #0f172a;
@@ -10,13 +10,22 @@ $slate-300: #cbd5e1;
 $slate-100: #f1f5f9;
 $slate-50: #f8fafc;
 $white: #ffffff;
+$emerald-secondary: #bdc2a6;
+$emerald-primary-logo: #92b6a5;
+
+$emerald-dark: #065f46;
+$slate-800: #1e293b;
+$slate-600: #475569;
+$slate-100: #f1f5f9;
+$border-color: #cbd5e1;
+$white: #ffffff;
 
 .page-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: system-ui, -apple-system, sans-serif !important;
   color: $slate-800;
   background-color: $slate-50;
 }
@@ -121,6 +130,57 @@ $white: #ffffff;
     .font-btn {
       font-weight: 700;
       background: $slate-100;
+    }
+  }
+  .hamburger-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+
+    .line {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: $slate-800;
+      border-radius: 2px;
+    }
+
+    @media (min-width: 768px) {
+      display: none; // Esconde no desktop
+    }
+  }
+
+  /* Lista de Rotas embaixo do Header no Celular */
+  .mobile-dropdown {
+    display: flex;
+    flex-direction: column;
+    background: $white;
+    border-bottom: 1px solid $border-color;
+    padding: 1rem 1.5rem;
+    gap: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+
+    a {
+      color: $slate-800;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.25rem 0;
+      border-bottom: 1px solid $slate-100;
+
+      &.active {
+        color: $emerald-dark;
+        font-weight: 700;
+      }
+    }
+
+    @media (min-width: 768px) {
+      display: none; // Garante que nunca aparece no desktop
     }
   }
 }

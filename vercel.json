@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api-fleury/(.*)",
+      "destination": "https://cms.fleury.com.br/$1"
+    }
+  ]
+}

@@ -14,18 +14,36 @@ export interface User {
 })
 export class UserService {
   private http = inject(HttpClient);
-  //private apiUrl = 'https://portal.worklabweb.com.br/resultados-on-line/1122';
-  private apiUrl = 'https://portal.worklabweb.com.br/resultados-on-line/3602';
+  private apiUrl = 'https://portal.worklabweb.com.br/resultados-on-line/1122';
+ 
+  abrirResultados(data: User): void {
+  const form = document.createElement('form');
 
-  // Retorna um Observable com a lista de usuários
-  resultado(data: User): Observable<any> {
-
-    const formData = new FormData();
+  const formData = new FormData();
     formData.append('_token', data._token);
     formData.append('tbCodigo', data.tbCodigo);
     formData.append('tbSenha', data.tbSenha);
     formData.append('rdbOpcao', data.rdbOpcao);
 
-    return this.http.post(this.apiUrl, formData, { responseType: 'text' });
-  }
+  form.method = 'POST';
+  form.action = this.apiUrl;
+  form.target = '_blank';
+  form.enctype = 'multipart/form-data';
+
+  formData.forEach((value, key) => {
+    if (typeof value === 'string') {
+      const input = document.createElement('input');
+
+      input.type = 'hidden';
+      input.name = key;
+      input.value = value;
+
+      form.appendChild(input);
+    }
+  });
+
+  document.body.appendChild(form);
+  form.submit();
+  form.remove();
+}
 }

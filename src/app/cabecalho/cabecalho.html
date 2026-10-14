@@ -1,6 +1,6 @@
 <header class="header">
     <div class="header-content">
-      <a href="#">
+      <a routerLink="/">
       <div class="logo-area">
         <div class="logo-icon"><img src="/logo2.png" alt="Logo"></div>
         <div class="logo-texts">
@@ -19,9 +19,22 @@
         <a href="#resultados" (click)="resultado()">PORTAL DE RESULTADOS</a>
       </nav>
 
-      <div class="accessibility-area">
-        <button class="access-btn" title="Acessibilidade">♿ Acessibilidade</button>
-        <button class="font-btn">A+</button>
-      </div>
-    </div>
+     <button class="hamburger-btn" (click)="toggleMenu()" aria-label="Abrir Menu">
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+    </button>
+
+  </div>
+
+  <!-- Lista de Rotas Mobile (Exibida apenas quando clicado) -->
+  <nav class="mobile-dropdown" *ngIf="menuAberto">
+    <a routerLink="/" (click)="toggleMenu()" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">HOME</a>
+    <a routerLink="/guia-exames" (click)="toggleMenu()" routerLinkActive="active">EXAMES</a>
+    <a href="#convenios" (click)="toggleMenu()" routerLinkActive="active">CONVÊNIOS</a>
+    <a routerLink="/sobre" (click)="toggleMenu()" routerLinkActive="active">SOBRE</a>
+    <a href="#resultados" (click)="resultado()" (click)="toggleMenu()">PORTAL DE RESULTADOS</a>
+  </nav>
+
+
   </header>
