@@ -19,11 +19,11 @@ export class GuiaExames {
   examesPaginados: any[] = [];    // Dados exibidos na página atual
   carregando: boolean = false;
 
-  paginaAtual: number = 1;
-  itensPorPagina: number = 12;
-  totalPaginas: number = 1;
+  pesquisaAtiva: boolean = false;
 
-  prazo: number = 0;
+  paginaAtual: number = 1;
+  itensPorPagina: number = 20;
+  totalPaginas: number = 1;
 
   ngOnInit() {
     this.carregarExames();
@@ -33,7 +33,7 @@ export class GuiaExames {
     this.carregando = true;
     this.examesService.getExames(this.paginaAtual).subscribe((data: any) => {
       this.todosExames = data.data;
-      this.paginaAtual = data.meta.pagination.page;
+      
       this.totalPaginas = data.meta.pagination.pageCount;
       this.addExames();
     });
@@ -46,7 +46,8 @@ export class GuiaExames {
           id: i.id,
           name: i.name,
           jejum: i.json?.instrucoesGerais?.find((instrucao: any) => instrucao.titulo === 'Jejum')?.conteudo || 'Não necessita jejum',
-          prazo: i.json?.instrucoesGerais?.find((instrucao: any) => instrucao.titulo === 'Prazo de Entrega')?.conteudo || ''
+          prazo: i.json?.instrucoesGerais?.find((instrucao: any) => instrucao.titulo === 'Prazo de Entrega')?.conteudo || '',
+          instrucoes: i.json?.instrucoesGerais?.find((instrucao: any) => instrucao.titulo === 'Orientações necessárias')?.conteudo || '',
         };
       });
       this.examesFiltrados = [...this.examesOriginal];
@@ -58,7 +59,7 @@ export class GuiaExames {
 
 onPesquisar() {
   this.paginaAtual = 1;
-  this.aplicarFiltrosEPaginacao();
+  this.aplicarFiltrosEPaginacao(1);
 }
 
 limparBusca() {
@@ -66,11 +67,11 @@ limparBusca() {
   this.onPesquisar();
 }
 
-aplicarFiltrosEPaginacao() {
+aplicarFiltrosEPaginacao(pagina: number) {
 
-  this.examesService.getPesquisa(this.termoBusca).subscribe((data: any) => {
+  this.examesService.getPesquisa(this.termoBusca, pagina).subscribe((data: any) => {
     this.todosExames = data.data;
-    this.paginaAtual = data.meta.pagination.page;
+    
     this.totalPaginas = data.meta.pagination.pageCount;
     this.addExames();
   });
@@ -80,9 +81,31 @@ aplicarFiltrosEPaginacao() {
 mudarPagina(novaPagina: number) {
   if (novaPagina >= 1 && novaPagina <= this.totalPaginas) {
     this.paginaAtual = novaPagina;
-    this.carregarExames(); // Carrega os exames da nova página
-    this.aplicarFiltrosEPaginacao();
+
+    if (this.termoBusca) {
+      this.aplicarFiltrosEPaginacao(novaPagina);
+    } else {
+    this.carregarExames();
+    }
+    //this.aplicarFiltrosEPaginacao();
     window.scrollTo({ top: 0, behavior: 'smooth' }); // Rola suavemente para o topo ao mudar de página
   }
 }
+
+exameSelecionadoParaPopUp: any = null; // Guarda o exame que o usuário clicou
+
+  abrirModalPreparo(exame: any): void {
+    this.exameSelecionadoParaPopUp = exame;
+    
+    // Trava a rolagem da página no fundo enquanto o pop-up estiver aberto (opcional, mas melhora a experiência)
+    document.body.style.overflow = 'hidden';
+  }
+
+  fecharModal(): void {
+    this.exameSelecionadoParaPopUp = null;
+    
+    // Destrava a rolagem da página
+    document.body.style.overflow = 'auto';
+  }
+
 }

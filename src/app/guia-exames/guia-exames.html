@@ -16,7 +16,7 @@
         type="text" 
         [value]="termoBusca"
         (input)="termoBusca = $any($event.target).value; onPesquisar()" 
-        placeholder="Ex: Hemograma, Glicemia, Colesterol..."
+        placeholder="Ex: Hemograma, Glicose, Colesterol..."
         class="search-input">
       @if (termoBusca) {
         <button (click)="limparBusca()" class="clear-btn">✕</button>
@@ -46,10 +46,45 @@
         </div>
         <div class="exame-footer">
           <span class="badge-prazo">Prazo: {{ exame.prazo }}</span>
-          <button class="detalhes-btn">Ver preparo</button>
+          <button class="detalhes-btn"  (click)="abrirModalPreparo(exame)">Ver preparo</button>
         </div>
       </div>
     </div>
+
+    <!-- POP-UP (MODAL) DE PREPARO -->
+<!-- O (click)="fecharModal()" no overlay faz o pop-up fechar se o usuário clicar fora da caixa branca -->
+<div class="modal-overlay" *ngIf="exameSelecionadoParaPopUp" (click)="fecharModal()">
+  
+  <!-- O (click)="$event.stopPropagation()" impede que o clique dentro da caixa branca feche o pop-up -->
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    
+    <!-- Cabeçalho do Pop-up -->
+    <div class="modal-header">
+      <h3>{{ exameSelecionadoParaPopUp.name }}</h3>
+      <button class="fechar-btn" (click)="fecharModal()" title="Fechar">✕</button>
+    </div>
+
+    <!-- Corpo do Pop-up (Instruções) -->
+    <div class="modal-body">
+      <div *ngIf="exameSelecionadoParaPopUp.instrucoes?.length > 0; else semInstrucoes">
+        
+          <div class="instrucao-block">
+            <!-- O texto do conteúdo renderiza aqui -->
+            <p class="instrucao-conteudo">{{ exameSelecionadoParaPopUp.instrucoes }}</p>
+          </div>
+
+      </div>
+      
+      <!-- Mensagem caso o JSON venha sem instruções para aquele exame específico -->
+      <ng-template #semInstrucoes>
+        <div class="sem-dados">
+          <p>Não há instruções específicas ou preparo obrigatório para este exame.</p>
+        </div>
+      </ng-template>
+    </div>
+
+  </div>
+</div>
 
     <!-- Estado Vazio (Nenhum resultado encontrado) -->
     <div *ngIf="!carregando && examesFiltrados.length === 0" class="empty-state">

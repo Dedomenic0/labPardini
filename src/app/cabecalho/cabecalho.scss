@@ -20,16 +20,6 @@ $slate-100: #f1f5f9;
 $border-color: #cbd5e1;
 $white: #ffffff;
 
-.page-container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  font-family: system-ui, -apple-system, sans-serif !important;
-  color: $slate-800;
-  background-color: $slate-50;
-}
-
 /* HEADER */
 .header {
   background: $white;

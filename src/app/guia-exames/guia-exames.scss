@@ -189,3 +189,115 @@ $white: #ffffff;
     }
   }
 }
+
+/* =========================================
+   ESTILOS DO POP-UP (MODAL)
+   ========================================= */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(15, 23, 42, 0.6); // Fundo escuro semi-transparente
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; // Fica por cima de tudo (inclusive do header)
+  padding: 1.5rem;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  max-height: 85vh; // Não deixa o pop-up ser maior que a tela
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  animation: slideUp 0.3s ease-out;
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1.5rem;
+    border-bottom: 1px solid #e2e8f0; // Linha divisória
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #065f46; // Verde principal do seu layout
+      margin: 0;
+      padding-right: 1rem;
+      line-height: 1.3;
+    }
+
+    .fechar-btn {
+      background: none;
+      border: none;
+      font-size: 1.25rem;
+      color: #64748b;
+      cursor: pointer;
+      padding: 0.25rem;
+      transition: color 0.2s;
+
+      &:hover {
+        color: #0f172a;
+      }
+    }
+  }
+
+  .modal-body {
+    padding: 1.5rem;
+    overflow-y: auto; // Cria rolagem interna se houver muito texto
+
+    .instrucao-block {
+      margin-bottom: 1.5rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .instrucao-titulo {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 0.5rem;
+      }
+
+      .instrucao-conteudo {
+        font-size: 0.95rem;
+        color: #475569;
+        line-height: 1.6;
+        white-space: pre-wrap; // IMPORTANTE: Transforma os \n do JSON em quebras de linha reais
+      }
+    }
+
+    .sem-dados {
+      text-align: center;
+      padding: 2rem 0;
+      color: #64748b;
+    }
+  }
+}
+
+/* Animações suaves de entrada */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0); 
+  }
+}
