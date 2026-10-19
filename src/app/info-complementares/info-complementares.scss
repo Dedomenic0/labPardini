@@ -1,0 +1,235 @@
+$emerald-dark: #065f46;
+$emerald-primary: #86b9a1;
+$emerald-light: #10b981;
+$emerald-bg: #ecfdf5;
+$slate-900: #0f172a;
+$slate-800: #1e293b;
+$slate-600: #475569;
+$slate-500: #64748b;
+$slate-300: #cbd5e1;
+$slate-200: #e2e8f0;
+$slate-100: #f1f5f9;
+$slate-50: #f8fafc;
+$white: #ffffff;
+$emerald-secondary: #bdc2a6;
+$emerald-primary-logo: #92b6a5;
+
+.unidade-container {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: $slate-800;
+
+  // Cabeçalho Padrão do Novo Site
+  .section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+
+    .section-badge {
+      display: inline-block;
+      background-color: $emerald-bg;
+      color: $emerald-dark;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.35rem 1rem;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: $slate-900;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      color: $slate-600;
+      font-size: 1.05rem;
+    }
+  }
+
+  // Grid de Cards Superiores
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .info-card {
+      background: $white;
+      border: 1px solid $slate-300;
+      border-radius: 1rem;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+      transition: all 0.2s ease;
+
+      &:hover {
+        border-color: $emerald-primary;
+        transform: translateY(-4px);
+        box-shadow: 0 10px 15px -3px rgba($emerald-primary, 0.08);
+      }
+
+      .card-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: $slate-900;
+        margin-bottom: 1rem;
+      }
+
+      .card-content {
+        color: $slate-600;
+        font-size: 0.95rem;
+        line-height: 1.6;
+
+        p {
+          margin: 0.5rem 0;
+        }
+
+        .phones {
+          margin-top: 1rem;
+          color: $emerald-dark;
+        }
+      }
+      // Estilos extras caso o card seja um Link (<a>)
+    &.link-card {
+      text-decoration: none; // Tira o sublinhado do link
+      color: inherit; // Mantém as cores originais do texto
+      display: block; // Garante que a área clicável preencha todo o card
+      cursor: pointer;
+
+      .link-hint {
+        display: inline-block;
+        margin-top: 1.2rem;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: $emerald-primary;
+        transition: color 0.2s;
+      }
+
+      &:hover {
+        // O card inteiro já tem o efeito de pular, mas aqui escurecemos um pouco o texto da dica
+        .link-hint {
+          color: $emerald-dark;
+        }
+      }
+    }
+
+      // Estilo específico para o card de Coleta
+      &.destaque-card {
+        background: $emerald-bg;
+        border-color: $emerald-light;
+
+        h3 {
+          color: $emerald-dark;
+        }
+
+        .agendar-btn {
+          margin-top: 1rem;
+          width: 100%;
+          background: $emerald-dark;
+          color: $white;
+          border: none;
+          padding: 0.75rem;
+          border-radius: 0.5rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: background 0.2s;
+
+          &:hover {
+            background: $emerald-primary;
+          }
+        }
+      }
+    }
+  }
+
+  // Seção da Equipe
+  .equipe-section {
+    border-top: 1px solid $slate-200;
+    padding-top: 3.5rem;
+    text-align: center;
+
+    .equipe-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: $slate-900;
+      margin-bottom: 2.5rem;
+    }
+
+    .equipe-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+
+      @media (min-width: 640px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .membro-card {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        background: $white;
+        border: 1px solid $slate-200;
+        padding: 1.5rem;
+        border-radius: 1rem;
+        text-align: left;
+        transition: border-color 0.2s;
+
+        &:hover {
+          border-color: $emerald-primary;
+        }
+
+        .avatar-icon {
+          font-size: 2.5rem;
+          background: $slate-50;
+          width: 60px;
+          height: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+        }
+
+        .membro-info {
+          h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: $slate-900;
+            margin: 0 0 0.25rem 0;
+          }
+
+          .cargo {
+            display: block;
+            font-size: 0.85rem;
+            color: $emerald-dark;
+            font-weight: 600;
+          }
+
+          .registro {
+            display: block;
+            font-size: 0.8rem;
+            color: $slate-500;
+            margin-top: 0.2rem;
+          }
+        }
+      }
+    }
+  }
+}

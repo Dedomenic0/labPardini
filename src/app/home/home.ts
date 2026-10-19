@@ -4,10 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { User, UserService } from '../services/user';
 import { Convenios } from '../convenios/convenios';
 import { Cabecalho } from '../cabecalho/cabecalho';
+import { InfoComplementares } from '../info-complementares/info-complementares';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, FormsModule, Convenios, Cabecalho],
+  imports: [CommonModule, FormsModule, Convenios, Cabecalho, InfoComplementares],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })

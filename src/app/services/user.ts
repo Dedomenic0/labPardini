@@ -46,4 +46,12 @@ export class UserService {
   form.submit();
   form.remove();
 }
+
+abreWhatsApp(): void {
+  const phoneNumber = '5514999999999';
+  const message = 'Olá, gostaria de agendar uma coleta em domicílio.';
+  const encodedMessage = encodeURIComponent(message);
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+  window.open(whatsappUrl, '_blank');
+}
 }

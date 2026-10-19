@@ -21,13 +21,15 @@
       <div class="section-header light">
         
         <h2>NOSSOS EXAMES</h2>
-        <p>Estrutura tecnológica avançada para diagnósticos precisos e seguros.</p>
+        <p>Veja alguns de nossos exames disponíveis no catálogo, além de muitos outros</p>
+
+        <button class="catalogo-btn" routerLink="/guia-exames">Ver Catálogo Completo</button>
       </div>
 
       <div class="exames-grid">
         <!-- Coluna 1 -->
         <div class="exames-box">
-          <h3>Áreas Clínicas</h3>
+          <h3>Hematologia</h3>
           <ul>
             <li *ngFor="let exame of examesColuna1">
               <span class="bullet">✓</span> {{ exame }}
@@ -37,13 +39,41 @@
 
         <!-- Coluna 2 -->
         <div class="exames-box">
-          <h3>Especializados & Ocupacionais</h3>
+          <h3>Bioquímica</h3>
           <ul>
             <li *ngFor="let exame of examesColuna2">
               <span class="bullet">✓</span> {{ exame }}
             </li>
           </ul>
         </div>
+
+        <div class="exames-box">
+          <h3>Hormonais</h3>
+          <ul>
+            <li *ngFor="let exame of examesColuna3">
+              <span class="bullet">✓</span> {{ exame }}
+            </li>
+          </ul>
+        </div>
+
+        <div class="exames-box">
+          <h3>Imunologicos</h3>
+          <ul>
+            <li *ngFor="let exame of examesColuna4">
+              <span class="bullet">✓</span> {{ exame }}
+            </li>
+          </ul>
+        </div>
+
+        <div class="exames-box">
+          <h3>Outros</h3>
+          <ul>
+            <li *ngFor="let exame of examesColuna5">
+              <span class="bullet">✓</span> {{ exame }}
+            </li>
+          </ul>
+        </div>
+
       </div>
 
     </div>
