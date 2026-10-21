@@ -1,0 +1,17 @@
+<!-- TIMELINE / SOBRE -->
+  <section id="sobre" class="timeline-section">
+    <div class="section-container">
+      <div class="section-header">
+        <h2>NOSSA HISTÓRIA DESDE 1948</h2>
+        <p>Conheça os marcos da nossa trajetória prestando serviços de excelência para Botucatu e região.</p>
+      </div>
+
+      <div class="timeline-grid">
+        <div *ngFor="let item of timelineEvents" class="timeline-item">
+          <div class="timeline-icon"><img src="{{ item.icon }}" alt="{{ item.title }}" /></div>
+          <span class="timeline-year">{{ item.year }} — {{ item.title | uppercase }}</span>
+          <p>{{ item.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>

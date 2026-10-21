@@ -2,10 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { Exames, ExamesService } from '../services/exames';
 import { Cabecalho } from '../cabecalho/cabecalho';
+import { Footer } from '../footer/footer';
 
 @Component({
   selector: 'app-guia-exames',
-  imports: [CommonModule, Cabecalho],
+  imports: [CommonModule, Cabecalho, Footer],
   templateUrl: './guia-exames.html',
   styleUrl: './guia-exames.scss',
 })

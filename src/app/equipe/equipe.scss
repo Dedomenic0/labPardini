@@ -1,0 +1,91 @@
+$emerald-dark: #065f46;
+$emerald-primary: #86b9a1;
+$emerald-light: #10b981;
+$emerald-bg: #ecfdf5;
+$slate-900: #0f172a;
+$slate-800: #1e293b;
+$slate-600: #475569;
+$slate-500: #64748b;
+$slate-300: #cbd5e1;
+$slate-200: #e2e8f0;
+$slate-100: #f1f5f9;
+$slate-50: #f8fafc;
+$white: #ffffff;
+$emerald-secondary: #bdc2a6;
+$emerald-primary-logo: #92b6a5;
+
+// Seção da Equipe
+  .equipe-section {
+    border-top: 1px solid $slate-200;
+    padding-top: 3.5rem;
+    text-align: center;
+
+    .equipe-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: $slate-900;
+      margin-bottom: 2.5rem;
+    }
+
+    .equipe-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+
+      @media (min-width: 640px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .membro-card {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        background: $white;
+        border: 1px solid $slate-200;
+        padding: 1.5rem;
+        border-radius: 1rem;
+        text-align: left;
+        transition: border-color 0.2s;
+
+        &:hover {
+          border-color: $emerald-primary;
+        }
+
+        .avatar-icon {
+          font-size: 2.5rem;
+          background: $slate-50;
+          width: 60px;
+          height: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+        }
+
+        .membro-info {
+          h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: $slate-900;
+            margin: 0 0 0.25rem 0;
+          }
+
+          .cargo {
+            display: block;
+            font-size: 0.85rem;
+            color: $emerald-dark;
+            font-weight: 600;
+          }
+
+          .registro {
+            display: block;
+            font-size: 0.8rem;
+            color: $slate-500;
+            margin-top: 0.2rem;
+          }
+        }
+      }
+    }
+  }

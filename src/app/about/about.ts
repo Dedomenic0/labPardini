@@ -1,10 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Cabecalho } from '../cabecalho/cabecalho';
+import { Timeline } from '../timeline/timeline';
+import { Equipe } from '../equipe/equipe';
+import { Footer } from '../footer/footer';
 
 @Component({
   selector: 'app-about',
-  imports: [CommonModule, Cabecalho],
+  imports: [CommonModule, Cabecalho, Timeline, Equipe, Footer],
   templateUrl: './about.html',
   styleUrl: './about.scss',
 })

@@ -99,7 +99,7 @@ $white: #ffffff;
         .destaque-box {
           background: $slate-50;
           border: 1px solid $slate-300;
-          padding: 1.5rem;
+          padding: 0.8rem;
           border-radius: 1rem;
           text-align: center;
           transition: transform 0.2s;
@@ -109,19 +109,14 @@ $white: #ffffff;
             transform: translateY(-2px);
           }
 
-          .numero {
-            display: block;
-            font-size: 1.75rem;
-            font-weight: 800;
-            color: $primary;
-            margin-bottom: 0.25rem;
+          .sobre-imagem {
+            border-radius: 1rem;
+            overflow: hidden;
+              width: 100%;
+              height: auto;
+              object-fit: cover;
           }
 
-          .rotulo {
-            font-size: 0.85rem;
-            color: $slate-600;
-            font-weight: 600;
-          }
         }
       }
     }

@@ -81,45 +81,9 @@
     </div>
   </section>
 
-  <!-- TIMELINE / SOBRE -->
-  <section id="sobre" class="timeline-section">
-    <div class="section-container">
-      <div class="section-header">
-        <span class="section-sup">Tradição e Inovação</span>
-        <h2>NOSSA HISTÓRIA DESDE 1948</h2>
-        <p>Conheça os marcos da nossa trajetória prestando serviços de excelência para Botucatu e região.</p>
-      </div>
-
-      <div class="timeline-grid">
-        <div *ngFor="let item of timelineEvents" class="timeline-item">
-          <div class="timeline-icon">🏢</div>
-          <span class="timeline-year">{{ item.year }} — {{ item.title | uppercase }}</span>
-          <p>{{ item.description }}</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  
-
   <app-convenios id="convenios"></app-convenios>
 
   <app-info-complementares></app-info-complementares>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-container">
-      <p>© 2026 Laboratório Dr. Pardini. Todos os direitos reservados.</p>
-      <div class="footer-links">
-        <a href="#">Política de Privacidade</a>
-        <a href="#">Termos de Uso</a>
-      </div>
-    </div>
-
-    <!-- BOTÃO FLUTUANTE WHATSAPP -->
-    <a href="https://wa.me/" target="_blank" class="whatsapp-float">
-      <span><img src="/whatsapp.png" alt=""> ATENDIMENTO VIA WHATSAPP</span>
-    </a>
-  </footer>
-
+  <app-footer></app-footer>
 </div>

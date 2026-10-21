@@ -86,7 +86,7 @@ $emerald-primary-logo: #92b6a5;
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background-image: url('/back.jpg');
+    background-image: url('/labBack.jpg');
     background-size: cover;
     background-position: center;
     opacity: 0.35;
@@ -265,7 +265,7 @@ $emerald-primary-logo: #92b6a5;
 
   .card-footer {
     margin-top: 1.5rem;
-    padding-top: 1rem;
+    padding-top: 0.5rem;
     border-top: 1px solid $slate-100;
     display: flex;
     flex-direction: column;
@@ -294,6 +294,7 @@ $emerald-primary-logo: #92b6a5;
       }
     }
   }
+  
 }
 
 /* TIMELINE SECTION */
@@ -333,128 +334,5 @@ $emerald-primary-logo: #92b6a5;
     }
   }
 
-  .timeline-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-
-    @media (min-width: 640px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @media (min-width: 1024px) {
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    .timeline-item {
-      background: $slate-50;
-      padding: 1.5rem;
-      border-radius: 1rem;
-      border: 1px solid rgba($slate-300, 0.8);
-      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      transition: box-shadow 0.2s;
-
-      &:hover {
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      }
-
-      .timeline-icon {
-        width: 3rem;
-        height: 3rem;
-        background: $emerald-bg;
-        color: $emerald-dark;
-        border-radius: 0.75rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 700;
-        font-size: 1.25rem;
-        margin-bottom: 1rem;
-      }
-
-      .timeline-year {
-        font-size: 0.75rem;
-        font-weight: 800;
-        color: $emerald-primary;
-        letter-spacing: 0.05em;
-        display: block;
-      }
-
-      p {
-        margin-top: 0.5rem;
-        font-size: 0.875rem;
-        color: $slate-600;
-        line-height: 1.5;
-      }
-    }
-  }
-}
-
-/* FOOTER */
-.footer {
-  background: $slate-900;
-  color: $slate-300;
-  padding: 3rem 1rem;
-  border-top: 1px solid $slate-800;
-  position: relative;
-
-  .footer-container {
-    max-width: 1280px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 0.75rem;
-    gap: 1rem;
-
-    @media (min-width: 640px) {
-      flex-direction: row;
-    }
-  }
-
-  .footer-links {
-    display: flex;
-    gap: 1.5rem;
-
-    a {
-      color: $slate-300;
-      text-decoration: none;
-      transition: color 0.2s;
-
-      &:hover {
-        color: $white;
-      }
-    }
-  }
-
-  .whatsapp-float {
-    position: fixed;
-    bottom: 1.5rem;
-    right: 1.5rem;
-    z-index: 50;
-    background: $emerald-light;
-    color: $white;
-    padding: 0.75rem 1.25rem;
-    border-radius: 9999px;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: 700;
-    font-size: 0.875rem;
-    text-decoration: none;
-    transition: all 0.2s;
-
-      img {
-        transform: translateY(20%);
-        width: 1.2rem;
-        height: 1.2rem;
-      }
-
-    &:hover {
-      background: $emerald-primary;
-      transform: scale(1.05);
-    }
-  }
+  
 }
