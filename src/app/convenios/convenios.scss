@@ -87,33 +87,67 @@ $emerald-primary-logo: #85b69f;
     }
 
     .convenio-card {
-      background: $slate-50;
-      border: 1px solid $slate-300;
-      border-radius: 1rem;
-      height: 90px;
+     position: relative;
+      overflow: hidden;
+      height: 70px;
+      background: $white;
+      border: 1px solid $slate-200;
+      border-radius: 0.75rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.2s ease;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+      padding: 1rem;
+      cursor: pointer;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+      transition: border-color 0.3s ease;
+
+      @media (min-width: 768px) {
+        height: 90px;
+        padding: 1rem;
+        border-radius: 0.75rem;
+      }
 
        img{
         max-height: 60px;
         max-width: 100%;
         object-fit: contain;
+        transition: transform 0.3s ease;
        }
 
-      &:hover {
-        border-color: $emerald-primary;
-        box-shadow: 0 10px 15px -3px rgba($emerald-primary, 0.1);
-        transform: translateY(-2px);
+      // &:hover {
+      //   border-color: $emerald-primary;
+      //   box-shadow: 0 10px 15px -3px rgba($emerald-primary, 0.1);
+      //   transform: translateY(-2px);
+      // }
+
+      .convenio-nome {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba($emerald-dark, 0.95); // Fundo verde escuro semi-transparente
+        color: $white;
+        padding: 0.5rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        
+        /* Esconde o texto para baixo */
+        transform: translateY(100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
-      .convenio-name {
-        font-weight: 700;
-        color: $slate-800;
-        font-size: 1rem;
-        letter-spacing: -0.025em;
+      &:hover {
+        border-color: $emerald-dark;
+        
+        // Sobe a caixa de texto
+        .convenio-nome {
+          transform: translateY(0);
+        }
+
+        // Opcional: reduz ligeiramente a imagem e empurra-a para cima para dar espaço
+        img {
+          transform: scale(0.9) translateY(-10px);
+        }
       }
     }
   }

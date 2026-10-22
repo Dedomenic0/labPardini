@@ -95,11 +95,11 @@ $emerald-primary-logo: #92b6a5;
         }
 
         .phones {
-          margin-top: 1rem;
+          margin-top: 0.2rem;
           color: $emerald-dark;
         }
       }
-      // Estilos extras caso o card seja um Link (<a>)
+      
     &.link-card {
       text-decoration: none; // Tira o sublinhado do link
       color: inherit; // Mantém as cores originais do texto

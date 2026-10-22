@@ -7,8 +7,12 @@
       <span class="convenios-title">CONVÊNIOS</span>
       <div class="convenios-grid">
         <div *ngFor="let conv of conveniosList" class="convenio-card">
-          <span class="convenio-name"><img src="{{ conv.logo }}" alt="{{ conv.name }}"></span>
+          <img src="{{ conv.logo }}" alt="{{ conv.name }}">
+           <div class="convenio-nome">
+             <span>{{ conv.name }}</span>
+           </div>
         </div>
+        
       </div>
     </div>
   </section>
