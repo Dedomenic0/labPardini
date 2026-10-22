@@ -1,15 +1,20 @@
 // VARIÁVEIS DE CORES
-$emerald-primary: #047857;
-$emerald-dark: #065f46;
-$emerald-light: #10b981;
+$emerald-dark: #57856f;
+$emerald-primary: #92b6a5;
+$emerald-light: #bdc2a6;
 $emerald-bg: #ecfdf5;
 $slate-900: #0f172a;
 $slate-800: #1e293b;
+$slate-700: #334155;
 $slate-600: #475569;
+$slate-400: #64748b;
 $slate-300: #cbd5e1;
+$slate-200: #e2e8f0;
 $slate-100: #f1f5f9;
 $slate-50: #f8fafc;
 $white: #ffffff;
+$emerald-secondary: #bdc2a6;
+$emerald-primary-logo: #92b6a5;
 
 .guia-exames-container {
   max-width: 1000px;
@@ -180,12 +185,95 @@ $white: #ffffff;
           }
 
           .detalhes-btn {
-            background: $slate-50;
-            border: 1px solid $slate-300;
-            color: $slate-800;
+            background-color: transparent;
+            color: $emerald-dark;
+            border: 1.5px solid $emerald-primary;
+            padding: 0.4rem 1.2rem;
+            border-radius: 9999px; /* Formato de pílula para combinar com a etiqueta */
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+
+            &:hover {
+              background-color: $emerald-bg;
+              border-color: $emerald-dark;
+              transform: translateY(-1px);
+            }
+
+            &:active {
+              transform: translateY(0);
+            }
           }
         }
       }
+    }
+  }
+}
+
+.pagination-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid $slate-200;
+
+  .page-info {
+    color: $slate-600;
+    font-size: 0.95rem;
+    
+    strong {
+      color: $slate-900;
+      font-weight: 600;
+    }
+  }
+
+  .page-btn {
+    display: flex;
+    align-items: center;
+    background-color: $white;
+    border: 1px solid $slate-300;
+    color: $slate-700;
+    padding: 0.5rem 1.25rem;
+    border-radius: 0.5rem; /* Cantos arredondados modernos */
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s facil;
+
+    /* Efeito ao passar o rato (apenas se o botão estiver ativo) */
+    &:hover:not(:disabled) {
+      border-color: $emerald-primary;
+      color: $emerald-dark;
+      background-color: $emerald-bg;
+      transform: translateY(-1px);
+    }
+
+    
+    &:disabled {
+      background-color: $slate-50;
+      color: $slate-400;
+      border-color: $slate-200;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+  }
+}
+
+/* Responsividade: para ecrãs muito pequenos, ajusta o espaçamento */
+@media (max-width: 480px) {
+  .pagination-container {
+    gap: 0.75rem;
+    
+    .page-btn {
+      padding: 0.5rem 0.75rem;
+    }
+    
+    .page-info {
+      font-size: 0.85rem;
     }
   }
 }

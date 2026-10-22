@@ -1,7 +1,7 @@
 // VARIÁVEIS DE CORES
-$emerald-dark: #065f46;
-$emerald-primary: #86b9a1;
-$emerald-light: #10b981;
+$emerald-dark: #57856f;
+$emerald-primary: #92b6a5;
+$emerald-light: #bdc2a6;
 $emerald-bg: #ecfdf5;
 $slate-900: #0f172a;
 $slate-800: #1e293b;
@@ -76,11 +76,11 @@ $emerald-primary-logo: #92b6a5;
   position: relative;
   background-color: $slate-900;
   color: $white;
-  padding: 4rem 1rem;
+  padding: 3cqh 1rem;
   overflow: hidden;
 
   @media (min-width: 1024px) {
-    padding: 6rem 2rem;
+    padding: 4rem 2rem;
   }
 
   .hero-overlay {
@@ -89,7 +89,7 @@ $emerald-primary-logo: #92b6a5;
     background-image: url('/labBack.jpg');
     background-size: cover;
     background-position: center;
-    opacity: 0.35;
+    opacity: 0.25;
   }
 
   .hero-content {
