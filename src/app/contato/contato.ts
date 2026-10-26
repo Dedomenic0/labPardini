@@ -3,48 +3,62 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Cabecalho } from '../cabecalho/cabecalho';
 import { Footer } from '../footer/footer';
+import { HttpClient } from '@angular/common/http';
+import emailjs from '@emailjs/browser'
+import { MatIcon } from '@angular/material/icon';
+
+declare let fbq: any;
 
 @Component({
   selector: 'app-contato',
-  imports: [ReactiveFormsModule, CommonModule, Cabecalho, Footer],
+  imports: [ReactiveFormsModule, CommonModule, Cabecalho, Footer, MatIcon],
   templateUrl: './contato.html',
   styleUrl: './contato.scss',
 })
 export class Contato {
   contatoForm!: FormGroup;
   mensagemEnviada: boolean = false;
+  enviando: boolean = false;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private http: HttpClient) {}
 
   ngOnInit(): void {
     this.contatoForm = this.fb.group({
       nome: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
-      telefone: ['', Validators.required],
-      assunto: ['duvida', Validators.required],
+      telefone: ['', [Validators.required, Validators.pattern(/^\(?\d{2}\)?\s?(9?\d{4})-?\d{4}$/)]],
+      assunto: ['Dúvidas', Validators.required],
       mensagem: ['', [Validators.required, Validators.minLength(10)]]
     });
   }
 
   enviarMensagem(): void {
-    if (this.contatoForm.valid) {
-      console.log('Dados do formulário:', this.contatoForm.value);
-      
-      // Aqui você integraria com sua API de envio de e-mail no futuro.
-      // Por enquanto, simulamos o sucesso:
-      this.mensagemEnviada = true;
-      this.contatoForm.reset({ assunto: 'duvida' });
+  if (this.contatoForm.valid) {
+    this.enviando = true;
 
-      // Esconde a mensagem de sucesso após 5 segundos
+    emailjs.send(
+      'service_6h8v2yh',
+      'template_h0o51aj',
+      this.contatoForm.value, // O EmailJS lê as chaves do seu FormGroup automaticamente
+      'OsGTsowLR09uSAnbZ'
+    )
+    .then((resultado) => {
+      this.mensagemEnviada = true;
+      this.enviando = false;
+      this.contatoForm.reset({ assunto: 'Dúvidas' });
+
+      if (typeof fbq !== 'undefined') {
+          fbq('track', 'Lead');
+        }
+
       setTimeout(() => {
         this.mensagemEnviada = false;
       }, 5000);
-    } else {
-      // Força a exibição dos erros se o usuário tentar enviar vazio
-      Object.keys(this.contatoForm.controls).forEach(campo => {
-        const controle = this.contatoForm.get(campo);
-        controle?.markAsTouched();
-      });
-    }
+    })
+    .catch((erro) => {
+      this.enviando = false;
+      alert('Ocorreu um erro ao enviar.');
+    });
   }
+}
 }

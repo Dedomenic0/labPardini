@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { UserService } from '../services/user';
+
+declare let fbq: any;
 
 @Component({
   selector: 'app-info-complementares',
@@ -15,5 +16,16 @@ export class InfoComplementares {
 
   whats() {
     this.mensagem.abreWhatsApp();
+  }
+
+  rastrearClique(destino: string): void {
+    if (typeof fbq !== 'undefined') {
+      const eventoMeta = destino === 'WhatsApp' ? 'Contact' : 'FindLocation';
+      
+      fbq('track', eventoMeta, {
+        content_name: destino,
+        content_category: 'Cliques de Ação'
+      });
+    }
   }
 }

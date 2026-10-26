@@ -6,6 +6,7 @@ $slate-900: #0f172a;
 $slate-800: #1e293b;
 $slate-600: #475569;
 $slate-300: #cbd5e1;
+$slate-200:#cbd5e1;
 $slate-100: #f1f5f9;
 $slate-50: #f8fafc;
 $white: #ffffff;
@@ -15,43 +16,93 @@ $emerald-primary-logo: #92b6a5;
   .footer {
   background: $slate-900;
   color: $slate-300;
-  padding: 1rem 1rem;
+  padding: 0.5rem 1rem;
   border-top: 1px solid $slate-800;
   position: relative;
 
   .footer-container {
-    max-width: 1280px;
+    max-width: 1000px;
     margin: 0 auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
     justify-content: space-between;
     font-size: 0.75rem;
     gap: 1rem;
 
+    .redes {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+      padding-left: 1.5rem;
+
+      .titulo-redes {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: white;
+        letter-spacing: 0.05em;
+        display: none;
+
+        @media (min-width: 640px) {
+          display: block;
+        }
+      }
+
+      .lista-redes {
+        display: flex;
+        flex-direction: column; // Empilha o Instagram e o Facebook verticalmente
+        gap: 0.6rem;
+        flex-direction: row;
+
+        .link-rede {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          text-decoration: none;
+          color: white;
+          font-size: 0.85rem;
+          font-weight: 500;
+          transition: color 0.2s ease;
+
+          .icone-rede {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+          }
+
+          mat-icon {
+            height: 18px;
+          }
+
+          // Efeito ao passar o mouse
+          &:hover {
+            color: $slate-50;
+
+            .icone-rede, mat-icon {
+              opacity: 1;
+              transform: scale(1.1); // Dá um leve zoom no ícone
+            }
+          }
+        }
+
+      }
+
+      @media (min-width: 640px) {
+        border-left: 1px solid $slate-200;
+      }
+    }
+
     @media (min-width: 640px) {
       flex-direction: row;
-    }
-  }
-
-  .footer-links {
-    display: flex;
-    gap: 1.5rem;
-
-    a {
-      color: $slate-300;
-      text-decoration: none;
-      transition: color 0.2s;
-
-      &:hover {
-        color: $white;
-      }
+      padding: 0.5rem 1.5rem;
     }
   }
 
   .whatsapp-float {
     position: fixed;
-    bottom: 1.5rem;
+    bottom: 2rem;
     right: 1.5rem;
     z-index: 50;
     background: $emerald-light;
@@ -71,6 +122,7 @@ $emerald-primary-logo: #92b6a5;
       span {
         display: none;
       }
+      bottom: 1rem;
     }
 
       img {
@@ -79,7 +131,7 @@ $emerald-primary-logo: #92b6a5;
       }
 
     &:hover {
-      background: $emerald-primary;
+      background: #0da773;
       transform: scale(1.05);
     }
   }

@@ -47,11 +47,11 @@ export class UserService {
   form.remove();
 }
 
-abreWhatsApp(): void {
-  const phoneNumber = '5514996001735';
-  const message = 'Olá, gostaria de agendar uma coleta domiciliar.';
-  const encodedMessage = encodeURIComponent(message);
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-  window.open(whatsappUrl, '_blank');
-}
+  abreWhatsApp(): void {
+    const phoneNumber = '5514996001735';
+    const message = 'Olá, gostaria de agendar uma coleta domiciliar.';
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
+  }
 }

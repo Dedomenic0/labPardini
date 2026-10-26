@@ -11,6 +11,8 @@ $white: #ffffff;
 $red-500: #ef4444;
 
 .contato-container {
+  display: flex;
+  flex-direction: column;
   max-width: 1100px;
   margin: 4rem auto;
   padding: 0 1.5rem;
@@ -50,6 +52,7 @@ $red-500: #ef4444;
     gap: 1.5rem;
 
     .info-card {
+      text-decoration: none;
       display: flex;
       align-items: flex-start;
       gap: 1rem;
@@ -179,4 +182,11 @@ $red-500: #ef4444;
       }
     }
   }
+}
+
+mat-icon {
+  color: $emerald-dark;
+  font-size: 28px;
+  width: 28px;
+  height: 28px;
 }

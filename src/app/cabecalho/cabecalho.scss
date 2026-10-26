@@ -7,6 +7,7 @@ $slate-900: #0f172a;
 $slate-800: #1e293b;
 $slate-600: #475569;
 $slate-300: #cbd5e1;
+$slate-200: #cbd5e1;
 $slate-100: #f1f5f9;
 $slate-50: #f8fafc;
 $white: #ffffff;
@@ -71,6 +72,7 @@ $border-color: #cbd5e1;
   }
 
   .nav-menu {
+    align-items: center;
     display: none;
     gap: 2rem;
     font-size: 0.875rem;
@@ -86,36 +88,65 @@ $border-color: #cbd5e1;
         font-weight: 600;
       }
     }
+    
 
-    @media (min-width: 768px) {
+    .redes {
       display: flex;
-    }
-  }
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+      padding-left: 1.5rem;
+      border-left: 1px solid $slate-200; // Cria uma linha divisória discreta à esquerda
 
-  .accessibility-area {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-size: 0.75rem;
-    color: $slate-600;
+      .titulo-redes {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: $slate-600;
+        letter-spacing: 0.05em;
+      }
 
-    button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
+      .lista-redes {
+        display: flex;
+        flex-direction: column; // Empilha o Instagram e o Facebook verticalmente
+        gap: 0.4rem;
 
-      &:hover {
-        background: $slate-100;
+        .link-rede {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          text-decoration: none;
+          color: $slate-600;
+          font-size: 0.85rem;
+          font-weight: 500;
+          transition: color 0.2s ease;
+
+          .icone-rede {
+            width: 18px;
+            height: 18px;
+            object-fit: contain;
+            opacity: 0.7;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+          }
+
+          // Efeito ao passar o mouse
+          &:hover {
+            color: $slate-900;
+
+            .icone-rede {
+              opacity: 1;
+              transform: scale(1.1); // Dá um leve zoom no ícone
+            }
+          }
+        }
       }
     }
 
-    .font-btn {
-      font-weight: 700;
-      background: $slate-100;
+    @media (min-width: 768px) {
+          display: flex;
+        }
     }
-  }
+
   .hamburger-btn {
     display: flex;
     flex-direction: column;

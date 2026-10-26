@@ -3,10 +3,11 @@ import { Component, inject } from '@angular/core';
 import { Exames, ExamesService } from '../services/exames';
 import { Cabecalho } from '../cabecalho/cabecalho';
 import { Footer } from '../footer/footer';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-guia-exames',
-  imports: [CommonModule, Cabecalho, Footer],
+  imports: [CommonModule, Cabecalho, Footer, MatIcon],
   templateUrl: './guia-exames.html',
   styleUrl: './guia-exames.scss',
 })

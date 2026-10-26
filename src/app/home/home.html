@@ -48,28 +48,38 @@
         </div>
 
         <!-- FORMULÁRIO -->
-        <form (submit)="onLogin()" class="login-form">
+        <form (ngSubmit)="onLogin()" [formGroup]="acessoForm" class="login-form">
           <div class="form-group">
             <label>Chave</label>
             <input 
               type="text" 
-              [(ngModel)]="chave" 
-              name="chave" 
+              formControlName="chave"
               placeholder="Digite sua chave de acesso"
-              required>
+              autocomplete="username">
+
+              @if(acessoForm.get('chave')?.hasError('required') && acessoForm.get('chave')?.touched) {               
+                <div class="error-message" role="alert">
+                  A chave é obrigatório.
+                </div>
+              }
           </div>
 
           <div class="form-group">
             <label>Senha</label>
             <input 
               type="password" 
-              [(ngModel)]="senha" 
-              name="senha" 
+              formControlName="senha"
               placeholder="••••••••"
-              required>
+              autocomplete="current-password">
+
+              @if(acessoForm.get('senha')?.hasError('required') && acessoForm.get('senha')?.touched) {               
+                <div class="error-message" role="alert">
+                  A senha é obrigatório.
+                </div>
+              }
           </div>
 
-          <button type="submit" class="submit-btn">ENVIAR</button>
+          <button type="submit" class="submit-btn" [disabled]="acessoForm.invalid">ENVIAR</button>
         </form>
 
         <div class="card-footer">

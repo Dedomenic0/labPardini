@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, Validators, ReactiveFormsModule } from '@angular/forms';
 import { User, UserService } from '../services/user';
 import { Convenios } from '../convenios/convenios';
 import { Cabecalho } from '../cabecalho/cabecalho';
@@ -9,7 +9,7 @@ import { Footer } from '../footer/footer';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, FormsModule, Convenios, Cabecalho, InfoComplementares, Footer],
+  imports: [CommonModule, FormsModule, Convenios, Cabecalho, InfoComplementares, Footer, ReactiveFormsModule],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
@@ -18,18 +18,26 @@ export class Home {
 
   activeTab: 'paciente' | 'medico' | 'convenio' = 'paciente';
 
-  // Dados do formulário de login
-  chave: string = '';
-  senha: string = '';
+  acessoForm!: FormGroup;
+
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit(): void {
+    this.acessoForm = this.fb.group({  
+      chave: ['', Validators.required],
+      senha: ['', Validators.required]
+    });
+  }
 
   onLogin() {
     const userData: User = {
-      tbCodigo: this.chave,
-      tbSenha: this.senha,
+      tbCodigo: this.acessoForm.get('chave')?.value,
+      tbSenha: this.acessoForm.get('senha')?.value,
       _token: '',
       rdbOpcao: this.activeTab
     };
 
     this.userService.abrirResultados(userData);
+    this.acessoForm.reset();
   }
 }

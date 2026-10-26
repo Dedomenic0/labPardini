@@ -11,24 +11,33 @@
     
     <!-- Coluna 1: Informações de Contato -->
     <div class="info-lateral">
-      <div class="info-card">
-        <span class="icon">📍</span>
+        <a 
+          href="https://www.google.com/maps/search/?api=1&query=Av.+Dom+Lúcio,+203,+Centro,+Botucatu+-+SP" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="info-card"
+        >
+        <span class="icon"><mat-icon>location_on</mat-icon></span>
         <div>
           <h4>Nossa Unidade</h4>
           <p>Av. Dom Lúcio, 203 - Centro<br>Botucatu/SP</p>
         </div>
-      </div>
+        </a>
 
       <div class="info-card">
-        <span class="icon">📞</span>
+        <span class="icon"><mat-icon>phone</mat-icon></span>
         <div>
           <h4>Telefones</h4>
-          <p>(14) 3882-4390<br>(14) 3815-3603</p>
+          <p>
+            (14) 99600-1735<br>
+            (14) 3882-4390<br>
+            (14) 3815-3603
+          </p>
         </div>
       </div>
 
       <div class="info-card">
-        <span class="icon">🕒</span>
+        <span class="icon"><mat-icon>schedule</mat-icon></span>
         <div>
           <h4>Atendimento</h4>
           <p>Seg a Sex: 06:30 às 17:00<br>Sábados: 06:30 às 09:00</p>
@@ -62,16 +71,19 @@
             <label for="telefone">Telefone / WhatsApp</label>
             <input type="tel" id="telefone" formControlName="telefone" placeholder="(14) 99999-9999">
             <span class="erro" *ngIf="contatoForm.get('telefone')?.invalid && contatoForm.get('telefone')?.touched">Telefone obrigatório.</span>
+            <span class="erro" *ngIf="contatoForm.get('telefone')?.hasError('pattern') && contatoForm.get('telefone')?.touched">
+              Insira um telefone válido com o DDD (ex: 14 99999-9999).
+            </span>
           </div>
         </div>
 
         <div class="form-group">
           <label for="assunto">Assunto</label>
           <select id="assunto" formControlName="assunto">
-            <option value="duvida">Dúvidas Gerais</option>
-            <option value="orcamento">Orçamento de Exames</option>
-            <option value="agendamento">Agendamento de Coleta Domiciliar</option>
-            <option value="sugestao">Sugestões ou Reclamações</option>
+            <option value="Dúvidas">Dúvidas Gerais</option>
+            <option value="Orçamento">Orçamento de Exames</option>
+            <option value="Agendamento">Agendamento de Coleta Domiciliar</option>
+            <option value="Sugestões/ Reclamações">Sugestões ou Reclamações</option>
           </select>
         </div>
 
@@ -81,7 +93,9 @@
           <span class="erro" *ngIf="contatoForm.get('mensagem')?.invalid && contatoForm.get('mensagem')?.touched">A mensagem deve ter pelo menos 10 caracteres.</span>
         </div>
 
-        <button type="submit" class="btn-enviar" [disabled]="contatoForm.invalid">Enviar Mensagem</button>
+        <button type="submit" class="btn-enviar" [disabled]="contatoForm.invalid || enviando">
+          {{ enviando ? 'Enviando...' : 'Enviar Mensagem' }}
+        </button>
       </form>
     </div>
 

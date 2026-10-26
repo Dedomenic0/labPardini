@@ -22,6 +22,7 @@
       target="_blank" 
       rel="noopener noreferrer" 
       class="info-card link-card"
+      (click)="rastrearClique('Google Maps')"
     >
         <h3>Laboratório</h3>
         <div class="card-content">
@@ -38,7 +39,7 @@
       <h3>Coleta em Domicílio</h3>
       <div class="card-content">
         <p>Maior conforto e segurança para você.</p>
-        <button (click)="whats()" class="agendar-btn">Agendar Coleta</button>
+        <button (click)="whats()" class="agendar-btn" (click)="rastrearClique('WhatsApp')">Agendar Coleta</button>
       </div>
     </div>
 
