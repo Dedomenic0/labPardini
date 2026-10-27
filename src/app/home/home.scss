@@ -55,7 +55,7 @@ $emerald-primary-logo: #92b6a5;
   overflow: hidden;
 
   @media (min-width: 1024px) {
-    padding: 4rem 2rem;
+    padding: 1.75rem;
   }
 
   .hero-overlay {
@@ -94,8 +94,7 @@ $emerald-primary-logo: #92b6a5;
       padding: 0.25rem 0.75rem;
       border-radius: 9999px;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;  
       
     }
 
@@ -107,7 +106,7 @@ $emerald-primary-logo: #92b6a5;
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 2rem;
       font-weight: 800;
       line-height: 1.2;
       letter-spacing: -0.025em;
@@ -118,12 +117,12 @@ $emerald-primary-logo: #92b6a5;
       }
 
       @media (min-width: 640px) {
-        font-size: 3rem;
+        font-size: 2.5rem;
       }
     }
 
     p {
-      font-size: 1.125rem;
+      font-size: 1rem;
       color: $slate-300;
       max-width: 36rem;
       line-height: 1.6;

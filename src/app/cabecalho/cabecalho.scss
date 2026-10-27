@@ -67,7 +67,7 @@ $border-color: #cbd5e1;
     .logo-subtitle {
       font-size: 0.75rem;
       color: $slate-600;
-      letter-spacing: 0.05em;
+      
     }
   }
 
@@ -94,8 +94,8 @@ $border-color: #cbd5e1;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 0.5rem;
-      padding-left: 1.5rem;
+      
+      padding-left: 0.5rem;
       border-left: 1px solid $slate-200; // Cria uma linha divisória discreta à esquerda
 
       .titulo-redes {

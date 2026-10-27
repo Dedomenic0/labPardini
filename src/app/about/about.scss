@@ -1,7 +1,8 @@
 // VARIÁVEIS DE CORES (Padrão do projeto)
 $primary: #047857;
-$primary-dark: #065f46;
-$primary-light: #10b981;
+$emerald-dark: #57856f;
+$emerald-primary: #92b6a5;
+$emerald-light: #bdc2a6;
 $emerald-bg: #ecfdf5;
 $slate-900: #0f172a;
 $slate-800: #1e293b;
@@ -10,6 +11,8 @@ $slate-300: #cbd5e1;
 $slate-100: #f1f5f9;
 $slate-50: #f8fafc;
 $white: #ffffff;
+$emerald-secondary: #bdc2a6;
+$emerald-primary-logo: #92b6a5;
 
 .sobre-container {
   max-width: 1200px;
@@ -27,7 +30,7 @@ $white: #ffffff;
     .section-badge {
       display: inline-block;
       background-color: $emerald-bg;
-      color: $primary;
+      color: $emerald-dark;
       font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
