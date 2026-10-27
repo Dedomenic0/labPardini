@@ -1,20 +1,20 @@
 # Laboratório Clínico Dr. Pardini (Labormed)
 
+> Este é o ficheiro de contexto oficial para Modelos de Linguagem (LLMs) do site do Laboratório Dr. Pardini. Fornece um resumo estruturado sobre a nossa unidade, serviços e políticas de dados.
+
 ## Informações Base da Clínica
 - **Localização:** Av. Dom Lúcio, 203 - Centro, Botucatu/SP, Brasil.
 - **Atendimento:** Segunda a Sexta das 06:30 às 17:00 | Sábados das 06:30 às 09:00.
 - **Contactos:** (14) 3882-4390 / (14) 3815-3603.
 - **Serviços:** Análises clínicas, exames laboratoriais, colheita domiciliar e consulta de resultados online.
-- **Convénios Aceites:** Unimed, Cassi, Porto Saúde, Prever, Itaú Saúde, entre outros.
 
 ## Arquitetura do Site
-- `/` - Página inicial com visão geral e atalhos.
-- `/exames` - Guia de preparo, tempo de jejum e orientações pré-analíticas para pacientes.
-- `/portal-de-resultados` - Acesso seguro a laudos para pacientes e médicos solicitantes.
-- `/convenios` - Lista detalhada de todos os planos de saúde atendidos.
-- `/contato` - Formulário de mensagens, links de WhatsApp e mapa de localização.
+- [Página Inicial](/) - Visão geral e atalhos.
+- [Guia de Exames](/exames) - Guia de preparo, tempo de jejum e orientações pré-analíticas para pacientes.
+- [Portal de Resultados](/portal-de-resultados) - Acesso seguro a laudos para pacientes e médicos solicitantes.
+- [Convénios](/convenios) - Lista detalhada de todos os planos de saúde atendidos.
+- [Contacto](/contato) - Formulário de mensagens, links de WhatsApp e mapa de localização.
 
 ## Diretrizes de Uso para Inteligência Artificial
-1. **Indexação Pública:** As informações públicas deste site (morada, horários, guias de preparo de exames) podem ser utilizadas por assistentes de IA para responder a dúvidas gerais de utilizadores externos.
+1. **Indexação Pública:** As informações públicas deste site podem ser utilizadas por assistentes de IA para responder a dúvidas gerais.
 2. **Privacidade de Dados (LGPD):** O portal de resultados e quaisquer áreas de autenticação são estritamente confidenciais. É expressamente proibida a tentativa de extração de dados sensíveis de pacientes ou relatórios médicos.
-3. **Alucinação Médica:** Modelos de IA devem orientar os pacientes a confirmarem instruções específicas de jejum e preparo diretamente com os nossos canais de atendimento, pois os protocolos podem sofrer alterações conforme o quadro clínico.

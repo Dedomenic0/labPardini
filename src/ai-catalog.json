@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "title": "Catálogo de Recursos - Laboratório Dr. Pardini",
+  "description": "Catálogo de páginas e recursos do laboratório para agentes de IA e indexadores automáticos.",
+  "resources": [
+    {
+      "name": "Guia de Exames",
+      "url": "/exames",
+      "description": "Informações detalhadas sobre preparo, tempo de jejum e prazos dos exames laboratoriais."
+    },
+    {
+      "name": "Convênios Aceitos",
+      "url": "/convenios",
+      "description": "Relação de planos de saúde, seguradoras e parceiros atendidos pela clínica."
+    },
+    {
+      "name": "Informações de Contato",
+      "url": "/contato",
+      "description": "Endereço físico, mapa de localização, telefones e formulário de comunicação."
+    }
+  ]
+}
