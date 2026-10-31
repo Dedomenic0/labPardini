@@ -21,7 +21,7 @@ export class Convenios {
     { name: 'Clinica Delmanto', logo: 'convenios/delmanto.webp' },
     { name: 'Clinica do Bairro', logo: 'convenios/clinica-bairro.webp' },
     { name: 'ASU Botucatu', logo: 'convenios/ASU.webp' },
-    { name: 'Solucard', logo: 'convenios/solucard.webp' }
+    { name: 'Solucard', logo: 'convenios/solucard.svg' }
   ];
 
   examesColuna1 = [
