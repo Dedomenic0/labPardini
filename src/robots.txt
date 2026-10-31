@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Aponta para o seu Sitemap (atualize com o domínio final)
-Sitemap: https://www.drpardini.com.br/sitemap.xml
+Sitemap: https://www.labpardini.com.br/sitemap.xml

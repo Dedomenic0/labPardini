@@ -114,12 +114,6 @@ $emerald-primary-logo: #85b69f;
         transition: transform 0.3s ease;
        }
 
-      // &:hover {
-      //   border-color: $emerald-primary;
-      //   box-shadow: 0 10px 15px -3px rgba($emerald-primary, 0.1);
-      //   transform: translateY(-2px);
-      // }
-
       .convenio-nome {
         position: absolute;
         bottom: 0;
@@ -164,7 +158,7 @@ $emerald-primary-logo: #85b69f;
   .exames-overlay {
     position: absolute;
     inset: 0;
-    background-image: url('/exames-back.avif');
+    background-image: url('/exames-back.webp');
     background-size: cover;
     background-position: center;
     opacity: 0.15;

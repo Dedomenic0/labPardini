@@ -1,13 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { Exames, ExamesService } from '../services/exames';
-import { Cabecalho } from '../cabecalho/cabecalho';
-import { Footer } from '../footer/footer';
+import { ExamesService } from '../services/exames';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-guia-exames',
-  imports: [CommonModule, Cabecalho, Footer, MatIcon],
+  imports: [CommonModule, MatIcon],
   templateUrl: './guia-exames.html',
   styleUrl: './guia-exames.scss',
 })

@@ -10,17 +10,18 @@ import { RouterLink } from '@angular/router';
 })
 export class Convenios {
   conveniosList = [
-    { name: 'Unimed', logo: 'convenios/01.png' },
-    { name: 'Prever', logo: 'convenios/02.png' },
+    { name: 'Unimed', logo: 'convenios/01.webp' },
+    { name: 'Prever', logo: 'convenios/02.webp' },
     { name: 'Sim Sinam', logo: 'convenios/sim-sinam.webp' },
-    { name: 'Cassi', logo: 'convenios/05.png' },
-    { name: 'Cabesp', logo: 'convenios/06.png' },
+    { name: 'Cassi', logo: 'convenios/05.webp' },
+    { name: 'Cabesp', logo: 'convenios/06.webp' },
     { name: 'Itau Saúde', logo: 'convenios/marca.svg' },
     { name: 'Porto Seguro Saúde', logo: 'convenios/porto-saude-seeklogo.svg' },
-    { name: 'APAS Botucatu', logo: 'convenios/apas-logo.png' },
-    { name: 'Clinica Delmanto', logo: 'convenios/delmanto.png' },
-    { name: 'Clinica do Bairro', logo: 'convenios/clinica-bairro.png' },
-    { name: 'ASU Botucatu', logo: 'convenios/ASU.png' },
+    { name: 'APAS Botucatu', logo: 'convenios/apas-logo.webp' },
+    { name: 'Clinica Delmanto', logo: 'convenios/delmanto.webp' },
+    { name: 'Clinica do Bairro', logo: 'convenios/clinica-bairro.webp' },
+    { name: 'ASU Botucatu', logo: 'convenios/ASU.webp' },
+    { name: 'Solucard', logo: 'convenios/solucard.webp' }
   ];
 
   examesColuna1 = [

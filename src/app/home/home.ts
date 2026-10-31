@@ -2,14 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, Validators, ReactiveFormsModule } from '@angular/forms';
 import { User, UserService } from '../services/user';
-import { Convenios } from '../convenios/convenios';
-import { Cabecalho } from '../cabecalho/cabecalho';
 import { InfoComplementares } from '../info-complementares/info-complementares';
-import { Footer } from '../footer/footer';
+import { Convenios } from '../convenios/convenios';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, FormsModule, Convenios, Cabecalho, InfoComplementares, Footer, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, Convenios, InfoComplementares, ReactiveFormsModule],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })

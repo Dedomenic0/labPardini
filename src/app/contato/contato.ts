@@ -1,8 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Cabecalho } from '../cabecalho/cabecalho';
-import { Footer } from '../footer/footer';
 import { HttpClient } from '@angular/common/http';
 import emailjs from '@emailjs/browser'
 import { MatIcon } from '@angular/material/icon';
@@ -11,7 +9,7 @@ declare let fbq: any;
 
 @Component({
   selector: 'app-contato',
-  imports: [ReactiveFormsModule, CommonModule, Cabecalho, Footer, MatIcon],
+  imports: [ReactiveFormsModule, CommonModule, MatIcon],
   templateUrl: './contato.html',
   styleUrl: './contato.scss',
 })

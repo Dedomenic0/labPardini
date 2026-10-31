@@ -39,10 +39,14 @@ $emerald-primary-logo: #92b6a5;
     }
 
     h2 {
-      font-size: 2rem;
+      font-size: 1.5rem;
       font-weight: 800;
       color: $slate-900;
       margin-bottom: 0.5rem;
+
+      @media (min-width: 640px) {
+          font-size: 2rem;
+        }
     }
 
     p {
